@@ -1,0 +1,11 @@
+apiVersion: apps/v1
+kind: Service
+metadata:
+  name: nestjs-bff
+spec:
+  selector:
+    app: nestjs-bff
+  ports:
+    - protocol: TCP
+      port: 3001
+  type: loadBalancer
