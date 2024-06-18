@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nestjs-bff
+spec:
+  selector:
+    matchLabels:
+      app: nestjs-bff
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: nestjs-bff
+    spec:
+      containers:
+        - name: nestjs-bff
+          image: eseynoa/nestjs-bff
+          ports:
+            - containerPort: 3001
