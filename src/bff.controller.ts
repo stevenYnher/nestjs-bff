@@ -10,7 +10,7 @@ export class BffController {
   async login(@Body() loginDto: { username: string; password: string }) {
     console.log(loginDto);
     return this.httpService
-      .post('34.27.157.162:3002/auth/login', loginDto)
+      .post('http://35.202.134.215:3002/auth/login', loginDto)
       .pipe(map(response => response.data));
   }
 
@@ -18,14 +18,14 @@ export class BffController {
   async register(@Body() registerDto: { username: string; password: string }) {
     console.log(registerDto);
     return this.httpService
-      .post('34.27.157.162:3002/auth/register', registerDto)
+      .post('http://35.202.134.215:3002/auth/register', registerDto)
       .pipe(map(response => response.data));
   }
 
   @Get('profile')
   async getProfile() {
     return this.httpService
-      .get('34.27.157.162:3002/users/profile')
+      .get('http://35.202.134.215:3002/users/profile')
       .pipe(map(response => response.data));
   }
 }

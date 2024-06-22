@@ -1,5 +1,4 @@
-
-FROM node:current-alpine as builder
+FROM --platform=linux/amd64 node:current-alpine as builder
 
 WORKDIR /app
 
@@ -7,7 +6,7 @@ COPY package.json package-lock.json ./
 RUN npm install
 
 COPY . .
+RUN chmod +x /usr/local/bin/docker-entrypoint.sh
+EXPOSE 3002
 
-EXPOSE 3001
-
-CMD ["npm", "start"] 
+CMD ["node", "dist/main"] 
